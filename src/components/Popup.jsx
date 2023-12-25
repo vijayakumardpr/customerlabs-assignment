@@ -76,23 +76,8 @@ const Popup = ({ toggle }) => {
             allSchemaList={allSchemaList}
             setSchemaList={setSchemaList}
           />
-
-          <p className="sub-title">
-            To Save your segment, you need to add the schemas to build the query
-          </p>
-
-          <div className="traits">
-            <div>
-              <Traits color={"green-bgcolor"} />
-              <div>-</div>
-              <div>User Traits</div>
-            </div>
-            <div>
-              <Traits color={"red-bgcolor"} />
-              <div>-</div>
-              <div>Group Traits</div>
-            </div>
-          </div>
+          <SubTitle />
+          <SegmentStatus />
           <Schemas
             schemaList={schemaList}
             setSchemaList={setSchemaList}
@@ -222,4 +207,29 @@ function Traits({ color }) {
 
 function Options({ item }) {
   return <option value={item.value}>{item.label}</option>;
+}
+
+function SubTitle() {
+  return (
+    <p className="sub-title">
+      To Save your segment, you need to add the schemas to build the query
+    </p>
+  );
+}
+
+function SegmentStatus() {
+  return (
+    <div className="traits">
+      <div>
+        <Traits color={"green-bgcolor"} />
+        <div>-</div>
+        <div>User Traits</div>
+      </div>
+      <div>
+        <Traits color={"red-bgcolor"} />
+        <div>-</div>
+        <div>Group Traits</div>
+      </div>
+    </div>
+  );
 }
